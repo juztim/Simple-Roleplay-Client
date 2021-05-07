@@ -1,0 +1,28 @@
+@import "reset";
+@import "mixins";
+@import "variables";
+@import "text";
+@import "spacing";
+@import "grid";
+@import "form";
+
+header {
+  background: $accent-color;
+  color: $font-color-light;
+  font-size: 1.8em;
+  margin-bottom: 4%;
+  padding: 50px;
+  @include angle(after, false, 1.5deg);
+}
+
+footer {
+  background: $accent-color;
+  color: $font-color-light;
+  font-size: 1.8em;
+  margin-top: 3%;
+  @include angle(before, true, 1.5deg);
+}
+
+.social-icons a:hover svg{
+  fill: #afa;
+}

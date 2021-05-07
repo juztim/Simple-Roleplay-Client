@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alt:V Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: transparent;
+        }
+
+        html {
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form-1 login-form">
+                <h3>Einloggen</h3>
+
+                <div class="form-group">
+                    <input type="text" id="Uname" class="form-control" placeholder="Benutzername *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" id="Pword" class="form-control" placeholder="Passwort *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="button" class="btnSubmit" value="Einloggen" onclick="login();" />
+                </div>
+                <div class="form-group">
+                    <span class="btnForgetPwd" data-toggle="modal" data-target="#forgetModal">Passwort vergessen?</span>
+                </div>
+
+            </div>
+            <div class="col-md-6 login-form-2 login-form">
+                <h3>Registrieren</h3>
+                <div class="form-group">
+                    <input type="text" id="regUname" class="form-control" placeholder="Benutzername *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPword" class="form-control" placeholder="Passwort *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regConfPword" class="form-control" placeholder="Passwort wiederholen *"
+                        value="" />
+                </div>
+                <div class="form-group">
+                    <input type="button" class="btnSubmit" value="Registrieren" onclick="register();" />
+                </div>
+                <div class="form-group">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgetModal" tabindex="-1" role="dialog" aria-labelledby="forgetModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgetModalLabel">Forget Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Du kannst dein Passwort jederzeit auf unserem <a href="ts3server://azugaming.de"
+                        style="color: #f05837;">Teamspeak</a> zurück setzen
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="WrongConfirmationModal" tabindex="-1" role="dialog"
+        aria-labelledby="WrongConfirmationLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="WrongConfirmationLabel">Fehler</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Passwörter stimmen nicht überein!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="NotAllFieldsModal" tabindex="-1" role="dialog"
+        aria-labelledby="NotAllFieldsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="NotAllFieldsLabel">Fehler</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bitte fülle alle Felder aus!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="GeneralModal" tabindex="-1" role="dialog"
+        aria-labelledby="GeneralModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="GeneralModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="GeneralModalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

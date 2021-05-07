@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+  <link href="css/tox-progress.css">
+</head>
+<body>
+
+  <!-- Start your project here-->  
+  <div id="MoneyHUD" class="float-right mr-5 mt-4" tabindex="-1">
+    <p id="MoneyHUD-currentMoney" tabindex="-1">$1000 </p>
+    <div class="clearfix"></div>
+  </div>
+
+  <ul id="InteractionMenu"></ul>
+  <ul id="AnimationMenu"></ul>
+  
+
+  <div id="Garage-Container" style="display: none;">
+    <div id="garage-header" class="text-center mt-4">
+      <img src="./img/logo.png" id="garage-logo" ondragstart="return false;">
+      <br>
+      <span id="garage-header-span">GARAGE</span>
+    </div>
+    <section class="car-section scrollbar-custom" id="car-section">
+
+
+    </section>
+  </div>
+  
+  <div id="atm" style="display: none;">
+
+    <div id="atmlogin" style="display: none;">
+      <img src="./img/logo.png" class="logo" ondragstart="return false;">
+      <div class="atm-header1">
+        <span>PIN EINGEBEN</span>
+      </div>
+      <div class="pin">
+        <input class="pininput" type="number" id="atm-loginPin">
+      </div> 
+      <div class="atm-checkin">
+        <span class="atm-checkinspan" id="atm-checkin">EINCHECKEN</span>
+      </div>
+    </div>
+
+    <div id="atmmenü" style="display: none;">
+      <img src="./img/logo.png" class="logo" ondragstart="return false;">
+      <div class="atm-header3">
+        <span>KONTO</span>
+      </div>
+      <div>
+        <img class="atm-line" src="img/atm/Line-1.png">
+        <span class="atm-checkinspan4" id="atm-kontostand">250.000 $</span>
+        <img class="atm-line" src="img/atm/Line-1.png">
+      </div>
+      <div class="atm-checkin2">
+        <span class="atm-checkinspan5" id="atm-einzahlenBTN">EINZAHLEN</span>
+      </div>
+      <div class="atm-checkin2">
+        <span class="atm-checkinspan5" id="atm-überweisenBTN">ÜBERWEISEN</span>
+      </div>
+      <div class="atm-checkin2">
+        <span class="atm-checkinspan5" id="atm-auszahlenBTN">AUSZAHLEN</span>
+      </div>
+    </div>
+
+    <div id="atmpayin" style="display: none;">
+      <img src="./img/logo.png" class="logo" ondragstart="return false;">
+      <div class="atm-header2">
+        <span>BETRAG EINGEBEN</span>
+      </div>
+      <div class="pin">
+        <input class="pininput" type="number" id="atm-payin-input">
+      </div> 
+      <div class="atm-checkin" id="atm-payinBTN">
+        <span class="atm-checkinspan2">EINZAHLEN</span>
+      </div>
+    </div>
+
+    <div id="atmpayout" style="display: none;">
+      <img src="./img/logo.png" class="logo" ondragstart="return false;">
+      <div class="atm-header2">
+        <span>BETRAG EINGEBEN</span>
+      </div>
+      <div class="pin">
+        <input class="pininput" type="number" id="atm-payout-input">
+      </div> 
+      <div class="atm-checkin" id="atm-payoutBTN">
+        <span class="atm-checkinspan2">AUSZAHLEN</span>
+      </div>
+    </div>
+
+    <div id="atmtransfer" style="display: none;">
+      <img src="./img/logo.png" class="logo" ondragstart="return false;">
+      <img class="atm-line" src="img/atm/Line-1.png">
+      <div class="atm-header6">
+        <span>KONTONUMMER EINGEBEN</span>
+      </div>
+      <div class="pin2">
+        <input class="pininput2" type="number" id="atm-überweisen-kontonummer">
+      </div> 
+      <img class="atm-line" src="img/atm/Line-1.png">
+      <div class="atm-header7">
+        <span>BETRAG EINGEBEN</span>
+      </div>
+      <div class="pin2">
+        <input class="pininput2" type="number" id="atm-überweisen-value"> 
+      </div> 
+      <div class="atm-checkin">
+        <span class="atm-checkinspan2" id="atm-transferBTN">ÜBERWEISEN</span>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div id="inventar" style="display: none;">
+    <span class="inventarspan">INVENTAR</span>
+    <span id="invgewicht">15 kg / 45 kg</span>
+    
+    <div id="item-container" class="scrollbar-custom-inv">
+    </div>
+
+    <div id="invbuttons">
+      <button class="invwegwerfen" id="inventar-wegwerfen">
+        <span class="invwegwerfen-span">WEGWERFEN</span>
+      </button>
+
+      <input id="invmenge">
+
+      <button class="invwegwerfen" id="inventar-benutzen">
+        <span class="invwegwerfen-span" id="inventar-benutzen">BENUTZEN</span>
+      </button>
+
+    </div>
+
+
+
+
+  </div>
+
+  <div id="shop" style="display: none;">
+    <img class="frak-logo"src="img/shop/24-7-Logo.png" id="shop-logo">
+    <img class="shop-line" src="img/shop/shop.png">
+    <button id="shop-überfallen">ÜBERFALLEN</button>
+
+    <div id="shop-item-container" class="scrollbar-custom-shop">
+      
+    </div>
+    <img class="shop-line2" src="img/shop/shop.png">
+  </div>
+
+
+  <div id="car-hud" style="display: none;">
+    <div id="main-part-car-hud">
+      <div id="hud-fuel">
+        <img id="car-hud-fuel" src="img/car-hud/fuel.png">
+        <progress class="progress" id="fuel-progress" value="10" max="100"></progress>
+      </div>
+      <div id="hud-speed">
+        <span id="kmh">0 km/h</span>
+      </div>
+      <div id="hud-range">
+        <span id="range">31.2 km</span>
+      </div>
+    </div>
+    <div id="small-red">
+      <div class="red-small-fuel"></div>
+      <div class="red-small-speed"></div>
+      <div class="red-small-range"></div>
+    </div>
+  </div>
+ 
+    
+  <div id="fuel-station" style="display: none;">
+    
+    <div class="fuel-station-main">
+      <span class="fuel-main-span">TREIBSTOFF</span>
+
+      <div class="fuel-benzin">
+        <img class="fuel-rahmen" src="img/fuel-station/rahmen.png">
+        <img class="fuel-benzin-icon" src="img/fuel-station/benzin.png">
+        <span class="fuel-benzin-price">BENZIN 20$</span>
+      </div>
+
+      <div class="fuel-diesel">
+        <img class="fuel-rahmen" src="img/fuel-station/rahmen.png">
+        <img class="fuel-diesel-icon" src="img/fuel-station/diesel.png">
+        <span class="fuel-benzin-price">DIESEL 15$</span>
+      </div>
+
+      <div class="fuel-strom">
+        <img class="fuel-rahmen" src="img/fuel-station/rahmen.png">
+        <img class="fuel-strom-icon" src="img/fuel-station/strom.png">
+        <span class="fuel-benzin-price">STROM 10$</span>
+      </div>
+      <img class="fuel-line" src="img/fuel-station/fuel-line.png">
+      <span class="fuel-liter">LITER</span>
+      <input id="liter-slider" type="range" min="1" max="100" value="1" class="slider">
+      <span id="liter-insgesamt">1 l</span>
+      <span id="price-insgesamt">0 $</span>
+      <img id="fuel-small" src="img/fuel-station/fuel-small.png">
+
+    </div>
+
+    <div class="fuel-station-header">
+      <img class="fuel-station-header-pic" src="img/fuel-station/fuel.png">
+    </div>
+
+  </div>
+
+
+  <div id="clothesshop" style="display: none;">
+    <div id="clothesshopbg">
+      <span class="clothesshopspan">KLEIDUNGSLADEN</span>
+      <img class="clothes-line" src="img/atm/Line-1.png">
+      <span class="clothesprice" id="clothespricehoodie">2000 $</span>
+      <img class="arrowleft" id="arrowlefthoodie" src="img/clothesshop/arrowleft.png">
+      <img class="hoodie" id="clothes-buy-top" src="img/clothesshop/kapuzenpullover.png">
+      <img class="arrowright" id="arrowrighthoodie" src="img/clothesshop/arrowright.png">
+      <div class="clothescountdiv">
+        <span class="clothescount" id="clothescounthoodie">22/22</span>
+      </div>
+      <img class="clothes-line" src="img/atm/Line-1.png">
+      <span class="clothesprice" id="clothespricehemd">2000 $</span>
+      <img class="arrowleft" id="arrowlefthemd" src="img/clothesshop/arrowleft.png">
+      <img class="hemd" id="clothes-buy-undershirt" src="img/clothesshop/hemd.png">
+      <img class="arrowright" id="arrowrighthemd" src="img/clothesshop/arrowright.png">
+      <div class="clothescountdiv">
+        <span class="clothescount" id="clothescounthemd">22/22</span>
+      </div>
+      <img class="clothes-line" src="img/atm/Line-1.png">
+      <span class="clothesprice" id="clothespricejeans">2000 $</span>
+      <img class="arrowleft" id="arrowleftjeans" src="img/clothesshop/arrowleft.png">
+      <img class="jeans" id="clothes-buy-legs" src="img/clothesshop/jeans.png">
+      <img class="arrowright" id="arrowrightjeans" src="img/clothesshop/arrowright.png">
+      <div class="clothescountdiv">
+        <span class="clothescount" id="clothescountjeans">22/22</span>
+      </div>
+      <img class="clothes-line" src="img/atm/Line-1.png">
+      <span class="clothesprice" id="clothespricesneaker">2000 $</span>
+      <img class="arrowleft" id="arrowleftsneaker" src="img/clothesshop/arrowleft.png">
+      <img class="sneaker" id="clothes-buy-shoes" src="img/clothesshop/sneaker.png">
+      <img class="arrowright" id="arrowrightsneaker" src="img/clothesshop/arrowright.png">
+      <div class="clothescountdiv">
+        <span class="clothescount" id="clothescountsneaker">22/22</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="accessoireshop" style="display: none;">
+    <div id="accessoireshopbg">
+      <span class="clothesshopspan">ACCESSOIRES</span>
+      <img class="clothes-line" src="img/atm/Line 1.png">
+      <span class="clothesprice" id="accessoirepricechain">250 $</span>
+      <img class="arrowleft" id="arrowleftchain" src="img/clothesshop/arrowleft.png">
+      <img class="chain" src="img/clothesshop/kette.png">
+      <img class="arrowright" id="arrowrightchain" src="img/clothesshop/arrowright.png">
+      <div class="clothescountdiv">
+        <span class="clothescount" id="clothescountchain">22/22</span>
+      </div>
+      <img class="clothes-line" src="img/atm/Line 1.png">
+      <span class="clothesprice" id="accessoirepriceears">250 $</span>
+      <img class="arrowleft" id="arrowleftears" src="img/clothesshop/arrowleft.png">
+      <img class="ears" src="img/clothesshop/ears.png">
+      <img class="arrowright" id="arrowrightears" src="img/clothesshop/arrowright.png">
+      <div class="clothescountdiv">
+        <span class="clothescount" id="clothescountears">22/22</span>
+      </div>
+      <img class="clothes-line" src="img/atm/Line 1.png">
+      <span class="clothesprice" id="accessoirepriceclock">250 $</span>
+      <img class="arrowleft" id="arrowleftaccessoireclock" src="img/clothesshop/arrowleft.png">
+      <img class="clock" src="img/clothesshop/uhr.png">
+      <img class="arrowright" id="arrowrightaccessoireclock" src="img/clothesshop/arrowright.png">
+      <div class="clothescountdiv">
+        <span class="clothescount" id="accessoirecountclock">22/22</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="kleiderschrank" style="display: none;">
+    
+    <div class="kleider-main" id="kleider-main">
+      <div class="kleiderschrank-div" id="closet-tops">  
+        <span class="kleiderschrank-span">Oberbekleidung</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-undershirts">  
+        <span class="kleiderschrank-span">Unterbekleidung</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-torsos">  
+        <span class="kleiderschrank-span">Körper</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-legs">  
+        <span class="kleiderschrank-span">Hosen</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-shoes">  
+        <span class="kleiderschrank-span">Schuhe</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-hats">  
+        <span class="kleiderschrank-span">Kopfbedeckung</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-masks">  
+        <span class="kleiderschrank-span">Masken</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-eyes">  
+        <span class="kleiderschrank-span">Brillen</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-accessoires">  
+        <span class="kleiderschrank-span">Accessoires</span>
+      </div>
+      <div class="kleiderschrank-div" id="closet-armor">  
+        <span class="kleiderschrank-span">Armor</span>
+      </div>
+    </div>
+
+    <div class="kleider-main scrollbar-custom-phone" id="kleider-container" style="display: none;">
+
+    </div>
+
+  </div>
+
+  <div id="paintball" style="display: none;">
+    <img class="paintball-img" src="img/paintball/paintball.png">
+    <span class="paintball-span">PAINTBALL ARENA</span>
+
+    <div id="arena-selection-container">
+      <div class="arena-selection" data-arenaId="1">
+        <img class="arena-würfelpark" src="img/paintball/wuerfelpark.png">
+        <span class="arena-places" id="arena1-players">Arena1 (x/x)</span>
+        <span class="arena-price" id="arena1-price">xx.xxx$</span>
+
+        <div class="join-button">
+          <span class="join-button-span">Beitreten</span>
+        </div>
+
+      </div>
+
+      <div class="arena-selection" data-arenaId="2">
+        <img class="arena-würfelpark" src="img/paintball/hafen.png">
+        <span class="arena-places" id="arena2-players">Arena2 (x/x)</span>
+        <span class="arena-price" id="arena2-price">xx.xxx$</span>
+
+        <div class="join-button">
+          <span class="join-button-span">Beitreten</span>
+        </div>
+
+      </div>
+
+      <div class="arena-selection" data-arenaId="3">
+        <img class="arena-würfelpark" src="img/paintball/harmony.png">
+        <span class="arena-places" id="arena3-players">Arena3 (x/x)</span>
+        <span class="arena-price" id="arena3-price">xx.xxx$</span>
+
+        <div class="join-button">
+          <span class="join-button-span">Beitreten</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="phone" style="display: none;" class="">
+
+    <div id="homescreen">
+      <div id=rahmen>
+        <img id="hgbild" src="./img/Handy/bannerlogo.png" alt="Hintergrund">
+        <img id="rahmen" src="./img/Handy/rahmen.png" alt="Rahmen">
+      </div>
+      <div id="appicons">
+        <img src="./img/Handy/banking.png" id="app-banking">
+        <img src="./img/Handy/funk.png" id="app-funk">
+        <img src="./img/Handy/garage.png" id="app-garage">
+        <img src="./img/Handy/browser.png" id="app-team">
+        <img src="./img/Handy/phone-book.png" id="app-contacts">
+        <img src="./img/Handy/phone.png" id="app-phone">
+        <img src="./img/Handy/sms.png" id="app-sms">
+        <img src="./img/Handy/settings.png" id="app-settings">
+        <img src="./img/Handy/pdapp.png" id="app-pd" style="display: none;">
+      </div>
+    </div>
+
+    <div id="bankingapp" style="display: none;">
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+        <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+      </div> 
+      <div id="bankingappstyle">
+        <span id="bankingappname">Franklin Johnson</span>
+        <span id="bankingappstand">1.000.000 $</span>
+        <img id="whitebank" src="img/Handy/whitebank.png">
+      </div>
+    </div>
+
+    <div id="garageapp" style="display: none;">
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+        <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+      </div> 
+
+      <div id="garageapp-conatiner" class="scrollbar-custom-phone">
+        <div id="garageappspan">
+          <span id="carplate">Pounder (NL63820)</span>
+          <span id="carowner">Franklin Johnson</span>
+          <span id="carplace">Sandy Shores</span>
+          <img id="imgmap" src="img/Handy/map.png">
+          <img id="phoneline2" src="img/Handy/line.png">
+        </div>
+        <div id="garageappspan2">
+          <span id="carplate">Revolter (NL63820)</span>
+          <span id="carowner">Franklin Johnson</span>
+          <span id="carplace">Vespucci</span>
+          <img id="imgmap" src="img/Handy/map.png">
+          <img id="phoneline2" src="img/Handy/line.png">
+        </div>
+        <div id="garageappspan2">
+          <span id="carplate">Pfister Neon (NL63820)</span>
+          <span id="carowner">Franklin Johnson</span>
+          <span id="carplace">Pillbox</span>
+          <img id="imgmap" src="img/Handy/map.png">
+          <img id="phoneline2" src="img/Handy/line.png">
+        </div>
+        <div id="garageappspan2">
+          <span id="carplate">Benson (NL63820)</span>
+          <span id="carowner">Franklin Johnson</span>
+          <span id="carplace">Pillbox</span>
+          <img id="imgmap" src="img/Handy/map.png">
+          <img id="phoneline2" src="img/Handy/line.png">
+        </div>
+        <div id="garageappspan2">
+          <span id="carplate">Nero (NL63820)</span>
+          <span id="carowner">Franklin Johnson</span>
+          <span id="carplace">Pillbox</span>
+          <img id="imgmap" src="img/Handy/map.png">
+          <img id="phoneline2" src="img/Handy/line.png">
+        </div>
+      </div>
+    </div>
+
+    <div id="kontakteapp" style="display: none;">
+      
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+        <img id="pfeil" src="img/Handy/pfeil.png">
+        <img class="add-contact" src="img/Handy/add 1.png">
+      </div>
+
+      <div id="contact-container" class="scrollbar-custom-phone">
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Franklin Johnson</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        <div id="contact">
+          <img id="person" src="img/Handy/person.png">
+          <span id="contactname">Tim Meyer</span>
+          <img id="phoneline3" src="img/Handy/line.png">
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div id="team-app" style="display: none;">
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+        <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+      </div>
+
+      <div id="teamapp-container" class="scrollbar-custom-phone">
+
+        <div class="teamapp-person">
+          <span class="teamapp-rang-span">Rang: 12</span>
+          <span class="teamapp-name-span">Fernando Escobar</span>
+          <img class="teamapp-call" src="img/Handy/team-call.png">
+          <img class="teamapp-settings"  src="img/Handy/team-settings.png">
+          <img class="teamapp-sms" src="img/Handy/team-sms.png">
+        </div>
+
+        <div class="teamapp-person">
+          <span class="teamapp-rang-span">Rang: 11</span>
+          <span class="teamapp-name-span">Fernando Escobar</span>
+          <img class="teamapp-call" src="img/Handy/team-call.png">
+          <img class="teamapp-settings"  src="img/Handy/team-settings.png">
+          <img class="teamapp-sms" src="img/Handy/team-sms.png">
+        </div>
+
+        <div class="teamapp-person">
+          <span class="teamapp-rang-span">Rang: 4</span>
+          <span class="teamapp-name-span">Fernando Escobar</span>
+          <img class="teamapp-call" src="img/Handy/team-call.png">
+          <img class="teamapp-settings"  src="img/Handy/team-settings.png">
+          <img class="teamapp-sms" src="img/Handy/team-sms.png">
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div id="team-app-leader" style="display: none;">
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+        <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+      </div>
+
+      <div id="teamapp-container" class="scrollbar-custom-phone">
+
+        <div class="teamapp-person">
+          <span class="teamapp-rang-span">Rang: 12</span>
+          <span class="teamapp-name-span">Fernando Escobar</span>
+         <img class="teamapp-uprank" src="img/Handy/team-uprank.png">
+          <img class="teamapp-downrank"  src="img/Handy/team-downrank.png">
+          <img class="teamapp-entlassen" src="img/Handy/team-entlassen.png">
+        </div>
+
+        <div class="teamapp-person">
+          <span class="teamapp-rang-span">Rang: 11</span>
+          <span class="teamapp-name-span">Fernando Escobar</span>
+          <img class="teamapp-uprank" src="img/Handy/team-uprank.png">
+          <img class="teamapp-downrank"  src="img/Handy/team-downrank.png">
+          <img class="teamapp-entlassen" src="img/Handy/team-entlassen.png">
+        </div>
+
+        <div class="teamapp-person">
+          <span class="teamapp-rang-span">Rang: 4</span>
+          <span class="teamapp-name-span">Fernando Escobar</span>
+          <img class="teamapp-uprank" src="img/Handy/team-uprank.png">
+          <img class="teamapp-downrank"  src="img/Handy/team-downrank.png">
+          <img class="teamapp-entlassen" src="img/Handy/team-entlassen.png">
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div id="funk-app" style="display: none;">
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+        <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+      </div>
+
+      <span class="funk-main-span">Funkkanal</span>
+      <input class="funk-frquenz" type="number">
+      <button class="join-funk-button">Beitreten</button>
+
+      <div id="setting-main">
+        <span class="setting-main-span2">Funk anschalten</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slidercheck round"></span>
+        </label>
+
+        <span class="setting-main-span2">Dauerfunk anschalten</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slidercheck round"></span>
+        </label>
+
+      </div>
+
+    </div>
+
+    <div id="direkt-call" style="display: none;">
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+        <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+      </div>
+
+      <div id="direkt-call-main">
+        <input class="phonenumber" id="call-direct-input"></input>
+        <img class="direkt" src="img/Handy/direkt.png">
+
+        <div id="number-tasten">
+          <img class="taste1" src="img/Handy/one.png">
+          <img class="taste1" src="img/Handy/two.png">
+          <img class="taste1" src="img/Handy/three.png">
+          <img class="taste1" src="img/Handy/four.png">
+          <img class="taste1" src="img/Handy/five.png">
+          <img class="taste1" src="img/Handy/six.png">
+          <img class="taste1" src="img/Handy/seven.png">
+          <img class="taste1" src="img/Handy/eight.png">
+          <img class="taste1" src="img/Handy/nine.png">
+        </div>
+        <img class="taste2" src="img/Handy/zero.png">
+        <button class="anruf-button" id="call-direct-button">ANRUFEN</button>
+      </div>
+
+    </div>
+
+    <div id="klingelt" style="display: none;">
+
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+      </div>
+
+      <div id="call-incomming-main">
+        <img class="male-big" src="img/Handy/male-big.png">
+        <span class="contact-extra-name" id="incomming-name">Franklin Johnson</span>
+        <span class="klingelt-span">KLINGELT...</span>
+        <img class="ablehnen-klingelt" id="phone-auflegen" src="img/Handy/ablehnen.png">
+
+      </div>
+    </div>
+
+    <div id="call-incomming" style="display: none;">
+
+      <div id=handyrahmen>
+        <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+        <img id="rahmen" src="./img/Handy/rahmen.png">
+      </div>
+
+      <div id="call-incomming-main">
+        <img class="male-big" src="img/Handy/male-big.png">
+        <span class="contact-extra-name" id="call-incomming-name">Franklin Johnson</span>
+        <img class="ablehnen" id="call-incoming-deny" src="img/Handy/ablehnen.png">
+        <img class="annehmen" id="call-incoming-accept" src="img/Handy/annehmen.png">
+
+      </div>
+    </div>
+
+    <div id="akten-app" style="display: none; width: 0px; height: 0px" >
+      <div id="pd-app-offene-akten" style="display: none;">
+      
+        <div id=handyrahmen>
+          <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+          <img id="rahmen" src="./img/Handy/rahmen.png">
+          <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+        </div>
+  
+        <div id="pd-app-offene-akten-main">
+  
+          <img class="pd-banner" src="img/pd-app/banner.png">
+          <span class="pd-app-name" id="pd-app-offene-akten-name">Franklin Johnson</span>
+          <img class="pd-line" src="img/pd-app/line.png">
+  
+          <div id="pd-akten-overview" class="scrollbar-custom-phone akten-overview">
+  
+            <div class="pd-akte">
+              <span class="akte-name">§8 Schwere Körperverletzung</span>
+            </div>
+            <div class="pd-akte">
+              <span class="akte-name">§8 Bewaffneter Raub </span>
+            </div>
+            <div class="pd-akte">
+              <span class="akte-name">§121 Fahren ohne Führerschein</span>
+            </div>
+  
+          </div>
+  
+          <span class="hafteinheiten" id="jailtime-count">25 Hafteinheiten</span>
+          <img class="akte-löschen" id="pd-akte-loeschen" src="img/pd-app/loeschen.png">
+          <img class="akte-vergeben" id="pdapp-akte-geben" src="img/pd-app/vergeben.png">
+  
+  
+        </div>
+      
+      </div>
+
+      <div id="pd-app-akten-verteilen" style="display: block;">
+      
+        <div id=handyrahmen>
+          <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+          <img id="rahmen" src="./img/Handy/rahmen.png">
+          <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+        </div>
+  
+        <div id="pd-app-offene-akten-main">
+  
+          <img class="pd-banner" src="img/pd-app/banner.png">
+          <span class="pd-app-name" id="pd-app-offene-akten-name">Akte vergeben</span>
+          <img class="pd-line" src="img/pd-app/line.png">
+  
+          <div id="pd-akten-accordion" class="scrollbar-custom-phone pd-akten-accordion">
+              <ul id="accordion" class="accordion scrollbar-custom-phone">
+                  
+              </ul>
+          </div>
+        </div>
+        <img src="./img/pd-app/save.png" id="akte-speichern" style="margin-left: 210px; position: relative; width: 30px;; cursor: pointer;">
+      </div>
+  
+     
+  
+      <div id="pd-app-namensuche" style="display: none;">
+        
+        <div id=handyrahmen>
+          <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+          <img id="rahmen" src="./img/Handy/rahmen.png">
+          <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+        </div>
+  
+        <div id="pd-app-offene-akten-main">
+  
+          <img class="pd-banner" src="img/pd-app/banner.png">
+          <span class="pd-app-name">Aktensystem</span>
+          <img class="pd-line" src="img/pd-app/line.png">
+  
+          <input class="keine-akten-offen2" placeholder="Name" id="pdapp-suchen-input"></input>
+  
+  
+          <img class="akte-vergeben3" id="akten-suchen" src="img/pd-app/suchen.png">
+  
+        </div>
+      
+      </div>
+  
+
+      <div id="pd-app-namesearch-result" style="display: none;">
+      
+        <div id=handyrahmen>
+          <img id="hgbhandy"src="css/assets/hgbhandy.PNG">
+          <img id="rahmen" src="./img/Handy/rahmen.png">
+          <img id="pfeil" class="pfeil" src="img/Handy/pfeil.png">
+        </div>
+  
+        <div id="pd-app-offene-akten-main">
+  
+          <img class="pd-banner" src="img/pd-app/banner.png">
+          <span class="pd-app-name2">Personen</span>
+          <img class="pd-line" src="img/pd-app/line.png">
+  
+          <div id="pd-names" class="scrollbar-custom-phone">
+  
+          </div>
+
+        </div>
+      
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="id-card" style="display: none;">
+
+    <div id="id-card-header">
+      <img class="id-card-header-img" src="img/id-card/s_white.png">
+      <span class="id-card-header-span">IDENTIFICATION CARD</span>
+    </div>
+    
+    
+    <div id="id-card-main">
+      <img class="background-image-main" src="img/id-card/s_grey.png">
+      <img class="forground-image-main" src="img/id-card/banner.png">
+      
+      <div id="text-id-container">
+        <span class="catecorie-headline">Vorname / Surname</span>
+        <span class="catecorie-headline-answer" id="idcard_surname">Franklin</span>
+        <span class="catecorie-headline"">Nachname / Name</span>
+        <span class="catecorie-headline-answer" id="idcard_lastname">Johnson</span>
+        <span class="catecorie-headline">Geburtstag / Date of Birth</span>
+        <span class="catecorie-headline-answer" id="idcard_birthday">06/12/1995</span>
+        <span class="catecorie-headline">Unterschrift / Signature</span>
+        <span class="catecorie-headline-signature" id="idcard_signature">Franklin Johnson</span>
+      </div>
+    </div>
+
+  
+
+  </div>
+
+  <div id="driving-licence" style="display: none;">
+
+    <div id="id-card-header">
+      <img class="id-card-header-img" src="img/id-card/s_white.png">
+      <span class="driving-licence-header-span">DRIVER LICENCE</span>
+    </div>
+
+    <div id="id-card-main">
+      <img class="background-image-main" src="img/id-card/s_grey.png">
+      <img class="forground-image-main" src="img/id-card/bg.png">
+      <img class="before-img" src="img/id-card/car.png">
+      
+      <div id="text-id-container">
+        <span class="catecorie-headline">Vorname / Surname</span>
+        <span class="catecorie-headline-answer" id="license-firstname">Franklin</span>
+        <span class="catecorie-headline">Nachname / Name</span>
+        <span class="catecorie-headline-answer" id="license-lastname">Johnson</span>
+        <span class="catecorie-headline">Geburtstag / Date of Birth</span>
+        <span class="catecorie-headline-answer" id="license-birthdate">06/12/1995</span>
+        <span class="catecorie-headline">Führerschein Klasse / Driving class</span>
+        <span class="catecorie-headline-answer" id="license-classes">Klasse A, B</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="weapon-licence" style="display: none;">
+
+    <div id="id-card-header">
+      <img class="id-card-header-img" src="img/id-card/SSSSSSSSSS 2.png">
+      <span class="driving-licence-header-span">WEAPON LICENCE</span>
+    </div>
+
+    <div id="id-card-main">
+      <img class="background-image-main" src="img/id-card/SSSSSSSSSS 1.png">
+      <img class="forground-image-main" src="img/id-card/bg 1.png">
+      <img class="before-img-weapon" src="img/id-card/weapon.png">
+      
+      <div id="text-id-container">
+        <span class="catecorie-headline">Vorname / Surname</span>
+        <span class="catecorie-headline-answer">Franklin</span>
+        <span class="catecorie-headline">Nachname / Name</span>
+        <span class="catecorie-headline-answer">Johnson</span>
+        <span class="catecorie-headline">Geburtstag / Date of Birth</span>
+        <span class="catecorie-headline-answer">06/12/1995</span>
+        <span class="catecorie-headline">Waffenart </span>
+        <span class="catecorie-headline-answer">Pistolen</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="car-shop" style="display: none;">
+    <span class="car-shop-span">AUTOHAUS</span>
+    <img class="car-shop-line" src="img/car-shop/Line.png"> 
+    <div id="car-shop-div" class="scrollbar-custom-phone">
+    </div>
+    <img class="car-shop-line" src="img/car-shop/Line.png"> 
+
+  </div>
+
+  <div id="front-hud">
+
+    <div id="mic-div">
+      <img class="front-hud-img" src="img/front-hud/mikrofon.png">
+    </div>
+
+    <div id="eat-div">
+      <img class="front-hud-img" src="img/front-hud/Hamburger.png">
+    </div>
+
+    <div id="drink-div">
+      <img class="front-hud-img" src="img/front-hud/wasser.png">
+    </div>
+
+  </div>
+
+  <div id="verarbeiter-container" style="display: none;">
+    <div id="verarbeiter-header" class="text-center">
+      <p class="verarbeiter-headline" id="verarbeiter-title">Westenverarbeiter</p>
+    </div>
+    <div id="verarbeiter-main">
+      <div id="verarbeiter-left">
+        <p id="verarbeiter-input-item-amount" class="verarbeiter-header">Vorhanden: 39</p>
+        <div id="verarbeiter-left-input-fill" class="verarbeiter-input-box">
+          <img id="verarbeiter-left-input" src="img/items/Aramid.png">
+          <progress class="progress" id="verarbeiter-input-progress" min="0" max="1000" value="0" style="margin-top: 20px;" />
+        </div>
+        <div id="verarbeiter-input-fill-btn" class="verarbeiter-button text-center">
+          <p class="verarbeiter-btn-text">Auffüllen</p>
+        </div>
+      </div>
+
+
+
+      <img id="verarbeiter-pfeil" src="img/verarbeiter/pfeil.png">
+      <div id="verarbeiter-right">
+        <p id="verarbeiter-ouput-item-amount" class="verarbeiter-header">Platz für: 39</p>
+        <div id="verarbeiter-right-output-fill" class="verarbeiter-input-box">
+          <img id="verarbeiter-right-output" src="img/items/Weste.png">
+          <progress class="progress" id="verarbeiter-output-progress" min="0" max="1000" value="0" style="margin-top: 20px;" />
+        </div>
+        <div id="verarbeiter-output-clear-btn" class="verarbeiter-button text-center">
+          <p class="verarbeiter-btn-text">Leeren</p>
+        </div>
+      </div>
+    
+    </div>
+
+  </div>
+
+
+  <!-- End your project here--> 
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
